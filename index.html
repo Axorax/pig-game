@@ -1,0 +1,120 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <title>Pig Game</title>
+    <meta name="title" content="Play Pig Game">
+    <meta name="og:title" content="Play Pig Game">
+    <meta name="description" content="Play pig game. Get to 69 or higher to win. If you roll a 1 you lose your current score!">
+    <meta name="og:description" content="Play pig game. Get to 69 or higher to win. If you roll a 1 you lose your current score!">
+</head>
+<body>
+    
+    <div class="menu">
+        <div class="menu-side-stuff">
+            <a href="https://patreon.com/axorax" target="_blank"><button class="supportbtn" data-tooltip="Patreon"><img src="assets/patreon.png" alt="Patreon"></button></a>
+            <button onclick="openSettings()" class="menu-side-stuff-settings" data-tooltip="Settings"><img src="assets/gear.png" alt="Settings"></button>
+        </div>
+        <div class="menu-content">
+            <div class="title">Pig Game</div>
+            <div class="menu-btns">
+                <button class="btn1" onclick="newGame();">New Game</button>
+                <button class="btn1"  onclick="newGameAI();">Play with AI</button>
+                <button class="btn1" onclick="howToPlayPopup()">How to play?</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-how">
+        <button class="close" onclick="howToPlayPopup()"><img src="assets/close.svg" alt="Close Popup"></button>
+        <div class="menu-how-title">How to play?</div>
+        <div class="menu-how-p">
+            Pig is a simple dice game first described in print in John Scarne in 1945. Players take turns to roll a single die as many times as they wish, adding all roll results to a running total, but losing their gained score for the turn if they roll a one.
+        </div>
+        <div class="menu-how-source">- wikipedia</div>
+        <div class="menu-how-content">
+            » Roll a dice and the points will be added to your current score. <br>
+            » If you roll 1, your current score will be resetted but your total score will be the same. <br>
+            » You can press the hold button if you feel like you will roll one. <br>
+            » After pressing hold, the opponents turn will begin and your current score will be added to the total score.
+        </div>
+    </div>
+
+    <div class="side-btns">
+        <button onclick="goToMenu()" data-tooltip="Leave" data-tooltip-center="true"><img src="assets/menu.svg" alt="Menu"></button>
+    </div>
+
+    <div class="game-container">
+        <div class="game-box-wrapper">
+
+            <div class="game-box p1 active">
+                <div class="p-num">Player 1</div>
+                <div class="score">0</div>
+                <div class="total">
+                    <p class="title">Total</p>
+                    <p class="content">0</p>
+                </div>
+                <hr>
+                <div class="btns">
+                    <div class="btn-grp">
+                        <button class="roll">🧻 Roll Dice</button>
+                        <button class="hold" onclick="holdScore()">🛑 Hold</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-box p2">
+                <div class="p-num">Player 2</div>
+                <div class="score">0</div>
+                <div class="total">
+                    <p class="title">Total</p>
+                    <p class="content">0</p>
+                </div>
+                <hr>
+                <div class="btns"> <!-- .text -->
+                    <p>AI is playing...</p>
+                    <div class="btn-grp">
+                        <button class="roll">🧻 Roll Dice</button>
+                        <button class="hold" onclick="holdScore()">🛑 Hold</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="popup">
+        <button class="close" onclick="goToMenu()"><img src="assets/close.svg" alt="Close Popup"></button>
+        <div class="title">Congratulations</div>
+        <div class="name">No value!</div>
+        <div class="data"></div>
+        <div class="popup-btns">
+            <button class="outline" onclick="goToMenu()">Menu</button>
+            <div class="right">
+                <button onclick="newGame()" class="newGameBtn">New Game</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings_overlay"></div>
+
+    <div class="settings">
+        <div class="container">
+            <div class="title">Settings</div>
+            <div class="input_field">
+                <label for="win_score">Score needed to win</label>
+                <input type="number" id="win_score" placeholder="Win Score">
+                <button onclick="settingsWinScore(this)">change</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
