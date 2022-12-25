@@ -22,9 +22,9 @@ settingsWrapper = document.querySelector('.settings'),
 settingsOverlay = document.querySelector('.settings_overlay');
 let number;
 let aiNumbersPassed = [0]
-let moves;
-let moved;
-let WIN_SCORE = 69;
+let moves,
+moved,
+WIN_SCORE = 69;
 let numbersPassed = [];
 
 const WINDOW_PARAMETER = (new URL(document.location)).searchParams;
